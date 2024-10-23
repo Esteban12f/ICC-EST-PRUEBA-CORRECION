@@ -10,9 +10,13 @@ public class App {
         Carro[] carros = generator.generarCarros();
 
         System.out.println("Listado de carros generadas:");
-        for (Carro persona : carros) {
-            System.out.println(persona);
+        for (int i = 0; i < carros.length; i++) {
+            System.out.print(carros[i].getName() + " ");
+            System.out.print(carros[i].getModel() + " ");
+            System.out.print(carros[i].getYear() + " " + "\n");
         }
-
+        MetodosOrdenamientoBusquedaGrupoB ordenar = new MetodosOrdenamientoBusquedaGrupoB();
+        ordenar.sortBYearWithBubbleAvnDesendente(carros);
+        System.out.println(carros);
     }
 }

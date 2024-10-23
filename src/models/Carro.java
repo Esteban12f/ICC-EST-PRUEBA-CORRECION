@@ -12,14 +12,6 @@ public class Carro {
         this.year = year;
     }
 
-    public String getPlaca() {
-        return name;
-    }
-
-    public void setPlaca(String name) {
-        this.name = name;
-    }
-
     public int getYear() {
         return year;
     }
