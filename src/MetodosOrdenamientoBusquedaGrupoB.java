@@ -1,5 +1,4 @@
 import models.Carro;
-import models.Person;
 
 /**
  * MetodosOrdenamientoBusqueda

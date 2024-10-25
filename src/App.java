@@ -11,7 +11,6 @@ public class App {
         Carro[] carros = generator2.generarCarros();
 
         MetodosOrdenamientoBusqueda mOB = new MetodosOrdenamientoBusqueda();
-        mOB.showPeople(personas);
         mOB.sortByHeightWithInsertion(personas);
         System.out.println("Arreglo de personas ordenado: ");
         mOB.showPeople(personas);
@@ -24,9 +23,10 @@ public class App {
             mOB.printObject(personas[result]);
         }
 
+        System.out.println("");
+
         // Ordenamiento Carros
         MetodosOrdenamientoBusquedaGrupoB mOB2 = new MetodosOrdenamientoBusquedaGrupoB();
-        mOB2.showCarros(carros);
         mOB2.sortBYearWithBubbleAvnAsendente(carros);
         System.out.println("Arreglo de carros ordenado: ");
         mOB2.showCarros(carros);
