@@ -1,22 +1,43 @@
 
 import models.Carro;
 import models.CarrosGenerator;
+import models.Person;
+import models.PersonasGenerator;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        CarrosGenerator generator = new CarrosGenerator();
+        Person[] personas = new PersonasGenerator().generarPersonas();
+        CarrosGenerator generator2 = new CarrosGenerator();
+        Carro[] carros = generator2.generarCarros();
 
-        // Obtener el arreglo de 50 carros generadas aleatoriamente
-        Carro[] carros = generator.generarCarros();
+        MetodosOrdenamientoBusqueda mOB = new MetodosOrdenamientoBusqueda();
+        mOB.showPeople(personas);
+        mOB.sortByHeightWithInsertion(personas);
+        System.out.println("Arreglo de personas ordenado: ");
+        mOB.showPeople(personas);
 
-        System.out.println("Listado de carros generadas:");
-        for (int i = 0; i < carros.length; i++) {
-            System.out.print(carros[i].getName() + " ");
-            System.out.print(carros[i].getModel() + " ");
-            System.out.print(carros[i].getYear() + " " + "\n");
+        int result = mOB.searchBinaryByHeight(personas, 169);
+        if (result == -1){
+            System.out.println("No se encontro :/");
+        } else {
+            System.out.print("Encontro en la posicion " + result + " -> " );
+            mOB.printObject(personas[result]);
         }
-        MetodosOrdenamientoBusquedaGrupoB ordenar = new MetodosOrdenamientoBusquedaGrupoB();
-        ordenar.sortBYearWithBubbleAvnDesendente(carros);
-        System.out.println(carros);
+
+        // Ordenamiento Carros
+        MetodosOrdenamientoBusquedaGrupoB mOB2 = new MetodosOrdenamientoBusquedaGrupoB();
+        mOB2.showCarros(carros);
+        mOB2.sortBYearWithBubbleAvnAsendente(carros);
+        System.out.println("Arreglo de carros ordenado: ");
+        mOB2.showCarros(carros);
+
+        int result2 = mOB2.searchBinaryByYear(carros, 2017);
+        if (result2 == -1){
+            System.out.println("No se encontro :/");
+        } else {
+            System.out.print("Encontro en la posicion " + result2 + " -> ");
+            mOB2.printObject(carros[result2]);
+        }
+
     }
 }
